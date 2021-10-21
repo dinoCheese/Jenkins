@@ -8,7 +8,9 @@ pipeline{
             steps{
                 echo "Build"
                 helloVariable("Fin")
-                printFromFunction()
+                script{
+                    utils.printFromFunction()
+                }
             }
         }
       stage("testing branches"){
