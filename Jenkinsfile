@@ -1,13 +1,17 @@
+
+def printFromFunction(){
+  println("I am printing from a function")
+}
+
 pipeline{
     agent any
     stages{
         stage("Build"){
             steps{
                 echo "Build"
+                printFromFunction()
             }
         }
-  
-
       stage("testing branches"){
           parallel{
             stage("Test on linux"){
