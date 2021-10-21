@@ -5,12 +5,19 @@ pipeline{
   stages{
 
     stage("build"){
+      echo "build"
     }
 
-    stage("test"){
+    stage("test_on_linux"){
+      echo "linux"
+    }
+    
+    stage("test_on_windows"){
+      echo "windows"
     }
 
     stage("deploy"){
+      echo "deploy"
     }
 
   }
