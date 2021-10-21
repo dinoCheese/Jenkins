@@ -1,24 +1,43 @@
 pipeline{
+    agent any
+    stages{
+        stage("Build"){
+            steps{
+                echo "Build"
+            }
+        }
+  
 
-  agent any
-
-  stages{
-
-    stage("build"){
-      echo "build"
+      stage("testing branches"){
+          parallel{
+            stage("Test on linux"){
+                steps{
+                    echo "Linux"
+                }
+            }
+            stage("Test on windows"){
+                steps{
+                    echo "Windows"
+                }
+            }
+          }
+       } 
+        stage("Deploy"){
+            steps{
+                echo "Deploy"
+            }
+        }
     }
-
-    stage("test_on_linux"){
-      echo "linux"
-    }
-    
-    stage("test_on_windows"){
-      echo "windows"
-    }
-
-    stage("deploy"){
-      echo "deploy"
-    }
-
-  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
