@@ -9,7 +9,7 @@ pipeline{
                 echo "Build"
                 helloVariable("Fin")
                 script{
-                    utils.printFromFunction()
+                    utils.replaceString()
                 }
             }
         }
