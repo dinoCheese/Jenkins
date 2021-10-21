@@ -13,6 +13,15 @@ pipeline{
                 }
             }
         }
+        
+      stage("Test"){
+           steps {
+               sh """
+               cat index.html | grep "Deployed by Jenkins job: ${BUILD_NUMBER}"
+               """
+            }
+        }
+        
       stage("testing branches"){
           parallel{
             stage("Test on linux"){
