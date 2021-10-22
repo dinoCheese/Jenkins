@@ -37,7 +37,7 @@ pipeline{
         stage("Docker Build"){
             agent{
                 docker{
-                    image "node.latest"
+                    image "node:latest"
                     args "-v ${WORKSPACE}/docker:/home/node"
                 }
             }
