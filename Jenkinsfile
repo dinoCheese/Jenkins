@@ -26,6 +26,10 @@ pipeline{
                 echo "${params.Name}"
                 script{
                     utils.replaceString()
+                    sh """
+                    mkdir -p docker
+                    """
+                    
                 }
             }
         }
