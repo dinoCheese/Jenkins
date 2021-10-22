@@ -7,7 +7,6 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                build '1_freestyle'
                 echo "Build"
                 helloVariable("Fin")
                 script{
@@ -46,10 +45,10 @@ pipeline{
         }
         
     }
-//     post {
-//         always{
-//             archiveArtifacts artifacts: 'index.html', followSymlinks: false
-//         }
-//     }
+    post {
+        always{
+            archiveArtifacts artifacts: 'index.html', followSymlinks: false
+        }
+    }
 }
 
