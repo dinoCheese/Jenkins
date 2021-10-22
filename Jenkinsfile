@@ -38,13 +38,13 @@ pipeline{
             agent{
                 docker{
                     image "node:latest"
-                    args "-v ${WORKSPACE}/docker:/home/node"
+                    args "-v ${WORKSPACE}/docker:/home/python_version"
+                    //python container (not node) change version of node to python check and write to file
                 }
             }
             steps {
                 sh """
-                    node --version > /home/node/docker_node_version
-                    npm --version > /home/node/docker_npm_version
+                    python --version > /home/node/python_version
                 """
             }
         }
