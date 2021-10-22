@@ -34,13 +34,18 @@ pipeline{
             stage("Test on windows"){
                 steps{
                     echo "Windows"
-                }
+               }
             }
           }
        } 
         stage("Deploy"){
             steps{
                 echo "Deploy"
+            }
+        }
+        stage("other pipeline"){
+            steps{
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'Http', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'mv webpage/index.html /var/www/html/index.html', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'build.tgz')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
