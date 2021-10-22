@@ -5,9 +5,10 @@ pipeline{
     
     agent any
     
-    //options{
-    //    timestamp()
-    //}
+    options{
+        timestamp()
+        disableConcurrentBuilds()
+    }
     
     environment{
         MYENVVAR = "testenvvar"
@@ -84,9 +85,9 @@ pipeline{
             archiveArtifacts artifacts: 'index.html', followSymlinks: false
         }
         
-        //cleanup{
-        //    cleanWs()
-        //}
+        cleanup{
+            cleanWs()
+        }
     }
 }
 
