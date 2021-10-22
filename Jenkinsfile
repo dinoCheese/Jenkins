@@ -37,14 +37,14 @@ pipeline{
         stage("Docker Build"){
             agent{
                 docker{
-                    image "node:latest"
-                    args "-v ${WORKSPACE}/docker:/home/python_version"
+                    image "python:latest"
+                    args "-v ${WORKSPACE}/docker:/home/python"
                     //python container (not node) change version of node to python check and write to file
                 }
             }
             steps {
                 sh """
-                    python --version > /home/python_version
+                    python --version > /home/docker_python_version
                 """
             }
         }
