@@ -2,10 +2,12 @@
 
 
 pipeline{
+    
     agent any
     stages{
         stage("Build"){
             steps{
+                build '1_freestyle'
                 echo "Build"
                 helloVariable("Fin")
                 script{
@@ -43,15 +45,3 @@ pipeline{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
