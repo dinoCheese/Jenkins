@@ -44,7 +44,7 @@ pipeline{
             }
             steps {
                 sh """
-                    python --version > /home/node/python_version
+                    python --version > /home/python_version
                 """
             }
         }
