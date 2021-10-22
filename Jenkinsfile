@@ -4,11 +4,22 @@
 pipeline{
     
     agent any
+    
+    environment{
+        MYENVVAR = "testenvvar"
+    }
+    
+    parameters{
+        string(name: "Name", defaultValue: "Fin", description: "my name is fin")
+    }
+    
     stages{
         stage("Build"){
             steps{
                 echo "Build"
                 helloVariable("Fin")
+                echo "${MYENVVAR}"
+                echo "${params.Name}"
                 script{
                     utils.replaceString()
                 }
