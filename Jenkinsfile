@@ -39,12 +39,11 @@ pipeline{
                 docker{
                     image "python:latest"
                     args "-v ${WORKSPACE}/docker:/home/python"
-                    //python container (not node) change version of node to python check and write to file
                 }
             }
             steps {
                 sh """
-                    python --version > /home/docker_python_version
+                    python --version > /home/python/python_version
                 """
             }
         }
